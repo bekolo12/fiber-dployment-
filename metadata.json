@@ -1,0 +1,5 @@
+{
+  "name": "FTTH Deployment Dashboard",
+  "description": "A comprehensive dashboard for monitoring Fiber To The Home network deployment progress, analyzing FDT/FAT status, civil works, and project timelines.",
+  "requestFramePermissions": []
+}
