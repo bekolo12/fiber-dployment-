@@ -1,12 +1,12 @@
 import React from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-  PieChart, Pie, Cell, ComposedChart, Rectangle
+  PieChart, Pie, Cell
 } from 'recharts';
 import {
   COLORS, PALETTE, plannedFDTData, actualFdtData, combinedFdtData, fatSumData,
   qcStatusData, cwFeederData, fiberVsDrillingData, grStatusData, distributionLayingData,
-  durationData
+  durationData, fdtPendingProgressData
 } from '../constants';
 
 const DashboardCharts: React.FC = () => {
@@ -89,7 +89,38 @@ const DashboardCharts: React.FC = () => {
          </div>
       </ChartCard>
 
-      {/* Row 3: FAT Sum & Performance Summary */}
+      {/* Row 3: FDT Pending & In Progress */}
+      <ChartCard title="FDT Pending & In Progress Status per Ring" height="h-[400px]">
+         <div className="h-full flex flex-col">
+            <div className="flex-grow">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={fdtPendingProgressData} stackOffset="sign">
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={60} tick={{fontSize: 10}} interval={0} />
+                  <YAxis tick={{fontSize: 12}} />
+                  <Tooltip 
+                     cursor={{ fill: '#f9fafb' }}
+                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
+                  />
+                  <Legend verticalAlign="top" height={36}/>
+                  <Bar dataKey="pending" name="Pending" fill={COLORS.warning} stackId="a" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="in_progress" name="In Progress" fill={COLORS.primary} stackId="a" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
+                <MiniStatsCard title="Total Pending" value="51" subtext="Across all rings" colorClass="text-amber-600 bg-amber-50 border-amber-200" />
+                <MiniStatsCard title="Total In Progress" value="4" subtext="SMR R3 (2), Sht R2 (2)" colorClass="text-blue-600 bg-blue-50 border-blue-200" />
+                <MiniStatsCard title="Overall Total" value="55" subtext="Pending + In Progress" colorClass="text-gray-600 bg-gray-50 border-gray-200" />
+            </div>
+            <div className="flex flex-wrap gap-3">
+               <Badge color="bg-red-100 text-red-700">Top Pending: Sht R3 (13), GZL R2 (9), Biji R2 (8)</Badge>
+               <Badge color="bg-blue-100 text-blue-700">In Progress: SMR R3, Sht R2</Badge>
+            </div>
+         </div>
+      </ChartCard>
+
+      {/* Row 4: FAT Sum & Performance Summary */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ChartCard title="Actual FAT Sum per Ring">
           <ResponsiveContainer width="100%" height="100%">
@@ -157,7 +188,7 @@ const DashboardCharts: React.FC = () => {
         </div>
       </div>
 
-      {/* Row 4: Pies */}
+      {/* Row 5: Pies */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
          <ChartCard title="QC Status Distribution">
             <ResponsiveContainer width="100%" height="100%">
@@ -208,7 +239,7 @@ const DashboardCharts: React.FC = () => {
          </ChartCard>
       </div>
 
-      {/* Row 5: Fiber vs Drilling */}
+      {/* Row 6: Fiber vs Drilling */}
       <ChartCard title="Fiber vs Drilling Length per Ring (meters)" height="h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={fiberVsDrillingData} barGap={0}>
@@ -226,7 +257,7 @@ const DashboardCharts: React.FC = () => {
         </ResponsiveContainer>
       </ChartCard>
 
-      {/* Row 6: Stacked Bars */}
+      {/* Row 7: Stacked Bars */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ChartCard title="GR Status per Ring (Done vs Pending)">
           <ResponsiveContainer width="100%" height="100%">
@@ -264,7 +295,7 @@ const DashboardCharts: React.FC = () => {
         </ChartCard>
       </div>
 
-       {/* Row 7: Duration */}
+       {/* Row 8: Duration */}
       <ChartCard title="Total Project Duration per Ring (Days)" height="h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={durationData} layout="vertical">
@@ -320,5 +351,21 @@ const SummaryCard: React.FC<{ title: string; colorClass: string; iconPath: strin
      {children}
   </div>
 );
+
+const MiniStatsCard: React.FC<{ title: string; value: string; subtext: string; colorClass: string }> = ({ title, value, subtext, colorClass }) => {
+    // colorClass expected like "text-amber-800 bg-amber-50 border-amber-200"
+    const colors = colorClass.split(' ');
+    // We can assume the order or specific classes. 
+    // Let's rely on Tailwind utility classes passed in.
+    return (
+        <div className={`border rounded-lg p-3 ${colorClass}`}>
+            <div className="flex items-center justify-between">
+                <span className="text-sm font-medium opacity-90">{title}</span>
+                <span className="text-2xl font-bold opacity-100">{value}</span>
+            </div>
+            <div className="text-xs opacity-90 mt-1">{subtext}</div>
+        </div>
+    )
+}
 
 export default DashboardCharts;

@@ -2,6 +2,8 @@ import React from 'react';
 import DashboardCharts from './components/DashboardCharts';
 import HeatmapTable from './components/HeatmapTable';
 import InfoSections from './components/InfoSections';
+import KPIAnalysis from './components/KPIAnalysis';
+import StrategicRecommendations from './components/StrategicRecommendations';
 
 const App: React.FC = () => {
   const currentDate = new Date().toLocaleDateString('en-US', {
@@ -74,6 +76,12 @@ const App: React.FC = () => {
 
         {/* Info Sections: Recommendations & Priority Rings */}
         <InfoSections />
+
+        {/* New KPI Analysis Dashboard */}
+        <KPIAnalysis />
+
+        {/* New Strategic Recommendations */}
+        <StrategicRecommendations />
 
       </main>
 

@@ -77,6 +77,19 @@ export const combinedFdtData = [
   { name: 'Tik R3', planned: 11, actual: 9 },
 ];
 
+export const fdtPendingProgressData = [
+  { name: 'Sht R3', in_progress: 0, pending: 13, total: 13 },
+  { name: 'GZL R2', in_progress: 0, pending: 9, total: 9 },
+  { name: 'Biji R2', in_progress: 0, pending: 8, total: 8 },
+  { name: 'Sht R4', in_progress: 0, pending: 8, total: 8 },
+  { name: 'SMR R3', in_progress: 2, pending: 5, total: 7 },
+  { name: 'Sht R5', in_progress: 0, pending: 5, total: 5 },
+  { name: 'Tik R2', in_progress: 0, pending: 3, total: 3 },
+  { name: 'Tik R3', in_progress: 0, pending: 2, total: 2 },
+  { name: 'Sht R1', in_progress: 0, pending: 2, total: 2 },
+  { name: 'Sht R2', in_progress: 2, pending: 0, total: 2 }
+];
+
 export const fatSumData = [
   { name: 'Biji R1', value: 597 },
   { name: 'Biji R2', value: 369 },
