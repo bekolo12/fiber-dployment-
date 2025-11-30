@@ -1,3 +1,4 @@
+
 export const COLORS = {
   primary: '#3b82f6',
   secondary: '#8b5cf6',
@@ -109,10 +110,22 @@ export const qcStatusData = [
   { name: 'Not Started', value: 90, color: COLORS.gray },
 ];
 
-export const cwFeederData = [
-  { name: 'Done', value: 9, color: COLORS.success },
-  { name: 'Pending', value: 5, color: COLORS.warning },
-  { name: 'In Progress', value: 1, color: COLORS.primary },
+export const cwFeederDetailedData = [
+  { name: 'Biji R1', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'Biji R2', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'Feedr', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'GZL R2', status: 'Pending', done: 0, pending: 1, in_progress: 0 },
+  { name: 'SMR R1', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'SMR R2', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'SMR R3', status: 'In Progress', done: 0, pending: 0, in_progress: 1 },
+  { name: 'Sht R1', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'Sht R2', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'Sht R3', status: 'Pending', done: 0, pending: 1, in_progress: 0 },
+  { name: 'Sht R4', status: 'Pending', done: 0, pending: 1, in_progress: 0 },
+  { name: 'Sht R5', status: 'Pending', done: 0, pending: 1, in_progress: 0 },
+  { name: 'Tik R1', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'Tik R2', status: 'Done', done: 1, pending: 0, in_progress: 0 },
+  { name: 'Tik R3', status: 'Pending', done: 0, pending: 1, in_progress: 0 },
 ];
 
 export const fiberVsDrillingData = [

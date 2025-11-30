@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
@@ -5,7 +6,7 @@ import {
 } from 'recharts';
 import {
   COLORS, PALETTE, plannedFDTData, actualFdtData, combinedFdtData, fatSumData,
-  qcStatusData, cwFeederData, fiberVsDrillingData, grStatusData, distributionLayingData,
+  qcStatusData, cwFeederDetailedData, fiberVsDrillingData, grStatusData, distributionLayingData,
   durationData, fdtPendingProgressData
 } from '../constants';
 
@@ -188,7 +189,7 @@ const DashboardCharts: React.FC = () => {
         </div>
       </div>
 
-      {/* Row 5: Pies */}
+      {/* Row 5: QC Status Pie & CW Feeder Bar */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
          <ChartCard title="QC Status Distribution">
             <ResponsiveContainer width="100%" height="100%">
@@ -216,25 +217,25 @@ const DashboardCharts: React.FC = () => {
 
          <ChartCard title="CW Feeder Status Overview per Project">
             <ResponsiveContainer width="100%" height="100%">
-               <PieChart>
-                  <Pie 
-                    data={cwFeederData} 
-                    cx="50%" 
-                    cy="50%" 
-                    innerRadius={60} 
-                    outerRadius={100} 
-                    paddingAngle={2} 
-                    dataKey="value"
-                  >
-                    {cwFeederData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} strokeWidth={0} />
-                    ))}
-                  </Pie>
+               <BarChart data={cwFeederDetailedData} stackOffset="sign">
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={60} tick={{fontSize: 10}} interval={0} />
+                  <YAxis type="number" hide domain={[0, 1]} />
                   <Tooltip 
+                     cursor={{ fill: '#f9fafb' }}
                      contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
+                     formatter={(value, name, props) => {
+                         if (value > 0) return [props.payload.status, "Status"];
+                         return [0, "Hidden"];
+                     }}
+                     // Hide tooltip item if value is 0 (hacky way, mostly reliant on custom formatter above or filtering)
+                     filterNull={true}
                   />
-                  <Legend verticalAlign="bottom" height={36}/>
-               </PieChart>
+                  <Legend verticalAlign="top" height={36}/>
+                  <Bar dataKey="done" name="Done" fill={COLORS.success} stackId="a" radius={[4, 4, 4, 4]} />
+                  <Bar dataKey="pending" name="Pending" fill={COLORS.warning} stackId="a" radius={[4, 4, 4, 4]} />
+                  <Bar dataKey="in_progress" name="In Progress" fill={COLORS.primary} stackId="a" radius={[4, 4, 4, 4]} />
+               </BarChart>
             </ResponsiveContainer>
          </ChartCard>
       </div>
