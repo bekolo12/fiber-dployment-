@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { heatmapData } from '../constants';
 
@@ -19,50 +20,6 @@ const HeatmapTable: React.FC = () => {
           </thead>
           <tbody>
             {heatmapData.map((row, index) => {
-               if (row.detailed) {
-                 return (
-                    <tr key={index} className="bg-blue-50 border-l-4 border-blue-400">
-                        <td className="px-4 py-3">
-                            <div className="text-sm font-bold text-gray-800">R2</div>
-                            <div className="text-xs text-gray-500">(Dora, ENT, GZL)</div>
-                        </td>
-                        <td className="px-4 py-3 text-center">
-                            <div className="flex flex-col gap-1 items-center">
-                                <MiniBadge color="bg-green-100 text-green-700">Dora: 4</MiniBadge>
-                                <MiniBadge color="bg-green-100 text-green-700">ENT: 2</MiniBadge>
-                                <MiniBadge color="bg-green-100 text-green-700">GZL: 3</MiniBadge>
-                            </div>
-                        </td>
-                        <td className="px-4 py-3 text-center">
-                            <div className="flex flex-col gap-1 items-center">
-                                <MiniBadge color="bg-gray-100 text-gray-500">Dora: 0</MiniBadge>
-                                <MiniBadge color="bg-gray-100 text-gray-500">ENT: 0</MiniBadge>
-                                <MiniBadge color="bg-amber-100 text-amber-700">GZL: 9</MiniBadge>
-                            </div>
-                        </td>
-                        <td className="px-4 py-3 text-center">
-                            <div className="flex flex-col gap-1 items-center">
-                                <StatusPill status="done" text="Dora: Done (4)" />
-                                <StatusPill status="done" text="ENT: Done (2)" />
-                                <StatusPill status="mixed" text="GZL: 3 Done, 9 Pending" />
-                            </div>
-                        </td>
-                        <td className="px-4 py-3 text-center">
-                            <div className="flex flex-col gap-1 items-center">
-                                <StatusPill status="pending" text="GZL: Pending (1)" />
-                                <span className="text-xs text-gray-500">Dora/ENT: No Data</span>
-                            </div>
-                        </td>
-                         <td className="px-4 py-3 text-center">
-                             <StatusPill status="nodata" text="No Data" />
-                        </td>
-                         <td className="px-4 py-3 text-center">
-                             <StatusPill status="nodata" text="No Data" />
-                        </td>
-                    </tr>
-                 )
-               }
-
                return (
                 <tr key={index} className={index % 2 !== 0 ? 'bg-gray-50' : 'bg-white'}>
                     <td className="px-4 py-3 text-sm font-medium text-gray-800 border-b border-gray-100">{row.ring}</td>
@@ -137,12 +94,6 @@ const LegendItem: React.FC<{ color: string; label: string }> = ({ color, label }
     <div className="flex items-center gap-2">
         <span className={`w-4 h-4 rounded ${color}`}></span> {label}
     </div>
-);
-
-const MiniBadge: React.FC<{ children: React.ReactNode; color: string }> = ({ children, color }) => (
-    <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${color}`}>
-      {children}
-    </span>
 );
 
 export default HeatmapTable;

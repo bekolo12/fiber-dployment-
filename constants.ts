@@ -113,7 +113,6 @@ export const qcStatusData = [
 export const cwFeederDetailedData = [
   { name: 'Biji R1', status: 'Done', done: 1, pending: 0, in_progress: 0 },
   { name: 'Biji R2', status: 'Done', done: 1, pending: 0, in_progress: 0 },
-  { name: 'Feedr', status: 'Done', done: 1, pending: 0, in_progress: 0 },
   { name: 'GZL R2', status: 'Pending', done: 0, pending: 1, in_progress: 0 },
   { name: 'SMR R1', status: 'Done', done: 1, pending: 0, in_progress: 0 },
   { name: 'SMR R2', status: 'Done', done: 1, pending: 0, in_progress: 0 },
@@ -178,6 +177,51 @@ export const durationData = [
   { name: 'Biji R2', days: 6, color: COLORS.success },
 ];
 
+// New Finale QC Analysis Data
+export const finaleQcData = {
+  qc_primary_acceptance: {
+    total_records: 204,
+    status_distribution: {
+      "Done": { count: 115, percentage: 56.37 },
+      "Ongoing": { count: 1, percentage: 0.49 }
+    }
+  },
+  status_column: {
+    total_records: 204,
+    status_distribution: {
+      "Pass ": { count: 50, percentage: 24.51 },
+      "Pass": { count: 34, percentage: 16.67 },
+      "Pass with notes": { count: 31, percentage: 15.20 },
+      "Empty/Unclear": { count: 2, percentage: 0.98 }
+    }
+  },
+  recommendations: [
+    "Prioritize 'Ongoing' QC items for timely completion",
+    "Standardize 'Pass' entries to resolve inconsistencies",
+    "Review 'Pass with notes' entries for unresolved issues",
+    "Audit records with empty/unclear statuses"
+  ],
+  critical_findings: [
+    "56.37% of QC processes are marked 'Done'",
+    "Minor inconsistencies exist in 'Pass' entries",
+    "Low-risk items include single 'Ongoing' status and 2 empty statuses"
+  ]
+};
+
+export const finaleQcStatusChartData = [
+    { name: 'Pass', value: 50 + 34, color: COLORS.success }, // Merging "Pass " and "Pass" for cleaner chart or keeping separate? User said "Pass " and "Pass". Let's keep separate as per JSON or merge if requested. The JSON has distinct keys. I will list them as separate or combine. Let's list separately but clean up name.
+    { name: 'Pass (Notes)', value: 31, color: COLORS.warning },
+    { name: 'Empty', value: 2, color: COLORS.gray }
+];
+
+// Refined chart data matching the JSON strictly for the Bar chart
+export const qcDetailedStatusData = [
+    { name: 'Pass ', value: 50, color: COLORS.success },
+    { name: 'Pass', value: 34, color: COLORS.emerald }, // Different shade
+    { name: 'Pass with notes', value: 31, color: COLORS.warning },
+    { name: 'Empty/Unclear', value: 2, color: COLORS.gray },
+];
+
 export interface HeatmapRow {
     ring: string;
     gr: 'done' | 'pending' | 'inprogress' | 'mixed' | 'nodata';
@@ -186,13 +230,14 @@ export interface HeatmapRow {
     distribution: 'done' | 'pending' | 'inprogress' | 'mixed' | 'nodata';
     fdtDone: number;
     fdtPending: number;
-    detailed?: boolean;
 }
 
 export const heatmapData: HeatmapRow[] = [
     { ring: 'Biji R1', gr: 'done', cw: 'done', splicing: 'done', distribution: 'done', fdtDone: 15, fdtPending: 0 },
     { ring: 'Biji R2', gr: 'mixed', cw: 'done', splicing: 'mixed', distribution: 'mixed', fdtDone: 10, fdtPending: 8 },
-    { ring: 'R2 (Dora, ENT, GZL)', gr: 'mixed', cw: 'pending', splicing: 'nodata', distribution: 'nodata', fdtDone: 9, fdtPending: 9, detailed: true },
+    { ring: 'Dora R2', gr: 'done', cw: 'nodata', splicing: 'nodata', distribution: 'nodata', fdtDone: 4, fdtPending: 0 },
+    { ring: 'ENT R2', gr: 'done', cw: 'nodata', splicing: 'nodata', distribution: 'nodata', fdtDone: 2, fdtPending: 0 },
+    { ring: 'GZL R2', gr: 'mixed', cw: 'pending', splicing: 'nodata', distribution: 'nodata', fdtDone: 3, fdtPending: 9 },
     { ring: 'SMR R1', gr: 'done', cw: 'done', splicing: 'done', distribution: 'mixed', fdtDone: 15, fdtPending: 0 },
     { ring: 'SMR R2', gr: 'done', cw: 'done', splicing: 'nodata', distribution: 'mixed', fdtDone: 16, fdtPending: 0 },
     { ring: 'SMR R3', gr: 'done', cw: 'inprogress', splicing: 'nodata', distribution: 'nodata', fdtDone: 4, fdtPending: 5 },
