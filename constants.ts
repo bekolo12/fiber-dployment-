@@ -61,10 +61,6 @@ export const actualFdtData = [
 export const combinedFdtData = [
   { name: 'Biji R1', planned: 15, actual: 15 },
   { name: 'Biji R2', planned: 18, actual: 10 },
-  { name: 'Dora R2', planned: 1, actual: 1 },
-  { name: 'DoraR2', planned: 3, actual: 3 },
-  { name: 'ENTR2', planned: 2, actual: 2 },
-  { name: 'GZL R2', planned: 9, actual: 3 },
   { name: 'SMR R1', planned: 15, actual: 15 },
   { name: 'SMR R2', planned: 16, actual: 16 },
   { name: 'SMR R3', planned: 11, actual: 4 },
@@ -209,7 +205,7 @@ export const finaleQcData = {
 };
 
 export const finaleQcStatusChartData = [
-    { name: 'Pass', value: 50 + 34, color: COLORS.success }, // Merging "Pass " and "Pass" for cleaner chart or keeping separate? User said "Pass " and "Pass". Let's keep separate as per JSON or merge if requested. The JSON has distinct keys. I will list them as separate or combine. Let's list separately but clean up name.
+    { name: 'Pass', value: 50 + 34, color: COLORS.success }, 
     { name: 'Pass (Notes)', value: 31, color: COLORS.warning },
     { name: 'Empty', value: 2, color: COLORS.gray }
 ];
@@ -217,9 +213,15 @@ export const finaleQcStatusChartData = [
 // Refined chart data matching the JSON strictly for the Bar chart
 export const qcDetailedStatusData = [
     { name: 'Pass ', value: 50, color: COLORS.success },
-    { name: 'Pass', value: 34, color: COLORS.emerald }, // Different shade
+    { name: 'Pass', value: 34, color: COLORS.emerald }, 
     { name: 'Pass with notes', value: 31, color: COLORS.warning },
     { name: 'Empty/Unclear', value: 2, color: COLORS.gray },
+];
+
+// New Test FDT vs Splicing Data
+export const testVsSplicingData = [
+  { name: 'Test FDT', done: 82, pending: 204 - 82 }, // Total 204
+  { name: 'Splicing', done: 83, pending: 204 - 83 }  // Total 204
 ];
 
 export interface HeatmapRow {

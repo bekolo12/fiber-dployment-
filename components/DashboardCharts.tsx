@@ -7,7 +7,7 @@ import {
 import {
   COLORS, PALETTE, plannedFDTData, actualFdtData, combinedFdtData, fatSumData,
   qcStatusData, cwFeederDetailedData, fiberVsDrillingData, grStatusData, distributionLayingData,
-  durationData, fdtPendingProgressData, finaleQcData, qcDetailedStatusData
+  durationData, fdtPendingProgressData, finaleQcData, qcDetailedStatusData, testVsSplicingData
 } from '../constants';
 
 const DashboardCharts: React.FC = () => {
@@ -65,7 +65,7 @@ const DashboardCharts: React.FC = () => {
       </div>
 
       {/* Row 2: Combined Planned vs Actual */}
-      <ChartCard title="Planned vs Actual civil work FDT Comparison per Ring" height="h-[400px]">
+      <ChartCard title="Planned vs Actual Civil Work FDT Comparison per Ring" height="h-[400px]">
          <div className="h-full flex flex-col">
             <div className="flex-grow">
               <ResponsiveContainer width="100%" height="100%">
@@ -91,7 +91,7 @@ const DashboardCharts: React.FC = () => {
       </ChartCard>
 
       {/* Row 3: FDT Pending & In Progress */}
-      <ChartCard title="Civil Work Status" height="h-[400px]">
+      <ChartCard title="Civil Work FDT Pending & In Progress Status per Ring" height="h-[400px]">
          <div className="h-full flex flex-col">
             <div className="flex-grow">
               <ResponsiveContainer width="100%" height="100%">
@@ -140,7 +140,7 @@ const DashboardCharts: React.FC = () => {
 
       {/* Row 5: QC Status Pie & Finale QC Analysis */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-         <ChartCard title="QC Status Distribution">
+         <ChartCard title="QC Status Distribution of civil work">
             <ResponsiveContainer width="100%" height="100%">
                <PieChart>
                   <Pie 
@@ -292,6 +292,21 @@ const DashboardCharts: React.FC = () => {
         </ResponsiveContainer>
       </ChartCard>
 
+      {/* Row 10: Test FDT vs Splicing */}
+      <ChartCard title="Test FDT vs Splicing Completion Status" height="h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={testVsSplicingData} layout="vertical" barSize={40}>
+                <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={true} stroke="#f3f4f6" />
+                <XAxis type="number" domain={[0, 204]} tickCount={10} />
+                <YAxis dataKey="name" type="category" width={100} />
+                <Tooltip cursor={{fill: 'transparent'}} />
+                <Legend />
+                <Bar dataKey="done" name="Done" fill={COLORS.success} stackId="a" radius={[0, 0, 0, 0]} />
+                <Bar dataKey="pending" name="Remaining (Total 204)" fill={COLORS.gray} stackId="a" radius={[0, 4, 4, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+      </ChartCard>
+
     </div>
   );
 };
@@ -319,9 +334,6 @@ const MiniBadge: React.FC<{ children: React.ReactNode; color?: string }> = ({ ch
 
 const MiniStatsCard: React.FC<{ title: string; value: string; subtext: string; colorClass: string }> = ({ title, value, subtext, colorClass }) => {
     // colorClass expected like "text-amber-800 bg-amber-50 border-amber-200"
-    const colors = colorClass.split(' ');
-    // We can assume the order or specific classes. 
-    // Let's rely on Tailwind utility classes passed in.
     return (
         <div className={`border rounded-lg p-3 ${colorClass}`}>
             <div className="flex items-center justify-between">
