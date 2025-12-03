@@ -193,7 +193,7 @@ const DashboardCharts: React.FC = () => {
       </div>
 
       {/* Row 6: CW Feeder */}
-      <ChartCard title="CW Feeder Status Overview per Project" height="h-[400px]">
+      <ChartCard title="CW Feeder Status Overview per RING" height="h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
             <BarChart data={cwFeederDetailedData} stackOffset="sign">
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
@@ -292,20 +292,36 @@ const DashboardCharts: React.FC = () => {
         </ResponsiveContainer>
       </ChartCard>
 
-      {/* Row 10: Test FDT vs Splicing */}
-      <ChartCard title="Test FDT vs Splicing Completion Status" height="h-[300px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={testVsSplicingData} layout="vertical" barSize={40}>
-                <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={true} stroke="#f3f4f6" />
-                <XAxis type="number" domain={[0, 204]} tickCount={10} />
-                <YAxis dataKey="name" type="category" width={100} />
-                <Tooltip cursor={{fill: 'transparent'}} />
-                <Legend />
-                <Bar dataKey="done" name="Done" fill={COLORS.success} stackId="a" radius={[0, 0, 0, 0]} />
-                <Bar dataKey="pending" name="Remaining (Total 204)" fill={COLORS.gray} stackId="a" radius={[0, 4, 4, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-      </ChartCard>
+      {/* Row 10: Test FDT & Splicing Separate Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <ChartCard title="Test FDT Completion Status" height="h-[200px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={[testVsSplicingData[0]]} layout="vertical" barSize={40}>
+                  <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={true} stroke="#f3f4f6" />
+                  <XAxis type="number" domain={[0, 204]} />
+                  <YAxis dataKey="name" type="category" width={100} tick={{fontSize: 12}} />
+                  <Tooltip cursor={{fill: 'transparent'}} />
+                  <Legend />
+                  <Bar dataKey="done" name="Done" fill={COLORS.success} stackId="a" radius={[0, 0, 0, 0]} />
+                  <Bar dataKey="pending" name="Remaining (Total 204)" fill={COLORS.gray} stackId="a" radius={[0, 4, 4, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+        </ChartCard>
+
+        <ChartCard title="Splicing Completion Status" height="h-[200px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={[testVsSplicingData[1]]} layout="vertical" barSize={40}>
+                  <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={true} stroke="#f3f4f6" />
+                  <XAxis type="number" domain={[0, 204]} />
+                  <YAxis dataKey="name" type="category" width={100} tick={{fontSize: 12}} />
+                  <Tooltip cursor={{fill: 'transparent'}} />
+                  <Legend />
+                  <Bar dataKey="done" name="Done" fill={COLORS.success} stackId="a" radius={[0, 0, 0, 0]} />
+                  <Bar dataKey="pending" name="Remaining (Total 204)" fill={COLORS.gray} stackId="a" radius={[0, 4, 4, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+        </ChartCard>
+      </div>
 
     </div>
   );
