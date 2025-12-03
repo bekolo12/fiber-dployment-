@@ -37,17 +37,30 @@ const App: React.FC = () => {
         <section>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
             <h2 className="text-xl font-semibold text-gray-800">Executive Summary</h2>
-            <a 
-              href="https://019ae3e5-849c-7dd5-98ea-8876e2a858b2.arena.site" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
-            >
-              Project Status Dashboard
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
+            <div className="flex flex-col items-end gap-2">
+                <a 
+                  href="https://019ae3e5-849c-7dd5-98ea-8876e2a858b2.arena.site" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors shadow-sm w-full sm:w-auto justify-center"
+                >
+                  Project Status Dashboard
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <a 
+                  href="https://lmarena.ai/c/019ae3e5-7e55-7506-bc22-97975fef3f3b" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white text-indigo-600 border border-indigo-200 text-sm font-medium rounded-lg hover:bg-indigo-50 transition-colors shadow-sm w-full sm:w-auto justify-center"
+                >
+                  Project Status Database Edit
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </a>
+            </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <KPICard 
