@@ -49,12 +49,10 @@ export const actualFdtData = [
   { name: 'Sht R1', value: 13, color: COLORS.primary },
   { name: 'Biji R2', value: 10, color: COLORS.primary },
   { name: 'Tik R3', value: 9, color: COLORS.purple },
-  { name: 'Feedr', value: 7, color: COLORS.purple },
   { name: 'SMR R3', value: 4, color: COLORS.warning },
   { name: 'DoraR2', value: 3, color: COLORS.warning },
   { name: 'GZLR2', value: 3, color: COLORS.warning },
   { name: 'ENTR2', value: 2, color: COLORS.warning },
-  { name: 'CC', value: 1, color: COLORS.warning },
   { name: 'Dora R2', value: 1, color: COLORS.warning },
 ];
 

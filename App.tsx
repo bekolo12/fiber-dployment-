@@ -35,7 +35,20 @@ const App: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 py-8 space-y-8">
         {/* KPI Cards */}
         <section>
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">Executive Summary</h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
+            <h2 className="text-xl font-semibold text-gray-800">Executive Summary</h2>
+            <a 
+              href="https://019ae3e5-849c-7dd5-98ea-8876e2a858b2.arena.site" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
+            >
+              Project Status Dashboard
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <KPICard 
               label="Actual Done FDT" 
@@ -74,7 +87,7 @@ const App: React.FC = () => {
             <HeatmapTable />
         </div>
 
-        {/* Info Sections: Recommendations & Priority Rings */}
+        {/* Info Sections: AI Analysis & Improvements */}
         <InfoSections />
 
         {/* New KPI Analysis Dashboard */}
