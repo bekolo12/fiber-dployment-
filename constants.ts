@@ -844,7 +844,138 @@ export const distributionLayingData = [
   }
 ];
 
-export const durationData = [];
+export const durationData = [
+  {
+    "name": "Tik R1",
+    "days": 80.0,
+    "color": "#ef4444"
+  },
+  {
+    "name": "Biji R1",
+    "days": 80.0,
+    "color": "#ef4444"
+  },
+  {
+    "name": "SMR R1",
+    "days": 80.0,
+    "color": "#ef4444"
+  },
+  {
+    "name": "SMR R2",
+    "days": 80.0,
+    "color": "#ef4444"
+  },
+  {
+    "name": "Dora R2",
+    "days": 80.0,
+    "color": "#ef4444"
+  },
+  {
+    "name": "ENTR2",
+    "days": 80.0,
+    "color": "#ef4444"
+  },
+  {
+    "name": "DoraR2",
+    "days": 80.0,
+    "color": "#ef4444"
+  },
+  {
+    "name": "GZLR2",
+    "days": 80.0,
+    "color": "#ef4444"
+  },
+  {
+    "name": "Sht R2",
+    "days": 73.6,
+    "color": "#ef4444"
+  },
+  {
+    "name": "Sht R1",
+    "days": 70.8,
+    "color": "#ef4444"
+  },
+  {
+    "name": "Tik R2",
+    "days": 66.7,
+    "color": "#ef4444"
+  },
+  {
+    "name": "Tik R3",
+    "days": 64.8,
+    "color": "#ef4444"
+  },
+  {
+    "name": "Biji R2",
+    "days": 39.2,
+    "color": "#f59e0b"
+  },
+  {
+    "name": "SMR R3",
+    "days": 32.3,
+    "color": "#f59e0b"
+  },
+  {
+    "name": "NO RING ",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "R2",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "R5",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "R4",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "R3",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "R1",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "Sht R3",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "Sht R4",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "Sht R5",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "Feedr",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "CC",
+    "days": 10,
+    "color": "#10b981"
+  },
+  {
+    "name": "GZL R2",
+    "days": 5,
+    "color": "#10b981"
+  }
+];
 
 export const finaleQcData = {
   "qc_primary_acceptance": {
