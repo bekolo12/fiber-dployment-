@@ -7,7 +7,8 @@ import {
 import {
   COLORS, PALETTE, plannedFDTData, actualFdtData, combinedFdtData, fatSumData,
   qcStatusData, cwFeederDetailedData, fiberVsDrillingData, grStatusData, distributionLayingData,
-  durationData, fdtPendingProgressData, finaleQcData, qcDetailedStatusData, testVsSplicingData
+  durationData, fdtPendingProgressData, finaleQcData, qcDetailedStatusData, 
+  testFdtPerRingData, splicingPerRingData
 } from '../constants';
 
 const DashboardCharts: React.FC = () => {
@@ -273,7 +274,7 @@ const DashboardCharts: React.FC = () => {
       </div>
 
        {/* Row 9: Duration */}
-      <ChartCard title="Total Project Duration per Ring (Days)" height="h-[400px]">
+      <ChartCard title="Total Project Duration per Ring (Days) Estimated" height="h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={durationData} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#f3f4f6" />
@@ -294,30 +295,32 @@ const DashboardCharts: React.FC = () => {
 
       {/* Row 10: Test FDT & Splicing Separate Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <ChartCard title="Test FDT Completion Status" height="h-[200px]">
+        <ChartCard title="Test FDT Completion Status per Ring" height="h-[400px]">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={[testVsSplicingData[0]]} layout="vertical" barSize={40}>
-                  <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={true} stroke="#f3f4f6" />
-                  <XAxis type="number" domain={[0, 204]} />
-                  <YAxis dataKey="name" type="category" width={100} tick={{fontSize: 12}} />
-                  <Tooltip cursor={{fill: 'transparent'}} />
-                  <Legend />
-                  <Bar dataKey="done" name="Done" fill={COLORS.success} stackId="a" radius={[0, 0, 0, 0]} />
-                  <Bar dataKey="pending" name="Remaining (Total 204)" fill={COLORS.gray} stackId="a" radius={[0, 4, 4, 0]} />
+              <BarChart data={testFdtPerRingData} stackOffset="sign">
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={60} tick={{fontSize: 10}} interval={0} />
+                  <YAxis tick={{fontSize: 12}} />
+                  <Tooltip cursor={{ fill: '#f9fafb' }} />
+                  <Legend verticalAlign="top" height={36}/>
+                  <Bar dataKey="completed" name="Completed" fill={COLORS.success} stackId="a" radius={[0, 0, 4, 4]} />
+                  <Bar dataKey="pending" name="Pending" fill={COLORS.warning} stackId="a" />
+                  <Bar dataKey="not_started" name="Not Started" fill={COLORS.gray} stackId="a" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Splicing Completion Status" height="h-[200px]">
+        <ChartCard title="Splicing Completion Status per Ring" height="h-[400px]">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={[testVsSplicingData[1]]} layout="vertical" barSize={40}>
-                  <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={true} stroke="#f3f4f6" />
-                  <XAxis type="number" domain={[0, 204]} />
-                  <YAxis dataKey="name" type="category" width={100} tick={{fontSize: 12}} />
-                  <Tooltip cursor={{fill: 'transparent'}} />
-                  <Legend />
-                  <Bar dataKey="done" name="Done" fill={COLORS.success} stackId="a" radius={[0, 0, 0, 0]} />
-                  <Bar dataKey="pending" name="Remaining (Total 204)" fill={COLORS.gray} stackId="a" radius={[0, 4, 4, 0]} />
+              <BarChart data={splicingPerRingData} stackOffset="sign">
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={60} tick={{fontSize: 10}} interval={0} />
+                  <YAxis tick={{fontSize: 12}} />
+                  <Tooltip cursor={{ fill: '#f9fafb' }} />
+                  <Legend verticalAlign="top" height={36}/>
+                  <Bar dataKey="completed" name="Completed" fill={COLORS.success} stackId="a" radius={[0, 0, 4, 4]} />
+                  <Bar dataKey="pending" name="Pending" fill={COLORS.warning} stackId="a" />
+                  <Bar dataKey="not_started" name="Not Started" fill={COLORS.gray} stackId="a" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
         </ChartCard>

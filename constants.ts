@@ -147,11 +147,6 @@ export const actualFdtData = [
     "color": "#3b82f6"
   },
   {
-    "name": "Feedr",
-    "value": 7,
-    "color": "#f59e0b"
-  },
-  {
     "name": "SMR R3",
     "value": 4,
     "color": "#f59e0b"
@@ -172,11 +167,6 @@ export const actualFdtData = [
     "color": "#10b981"
   },
   {
-    "name": "NO RING",
-    "value": 1,
-    "color": "#f59e0b"
-  },
-  {
     "name": "CC",
     "value": 1,
     "color": "#f59e0b"
@@ -184,36 +174,6 @@ export const actualFdtData = [
 ];
 
 export const combinedFdtData = [
-  {
-    "name": "NO RING",
-    "planned": 0,
-    "actual": 1
-  },
-  {
-    "name": "R2",
-    "planned": 0,
-    "actual": 0
-  },
-  {
-    "name": "R5",
-    "planned": 0,
-    "actual": 0
-  },
-  {
-    "name": "R4",
-    "planned": 0,
-    "actual": 0
-  },
-  {
-    "name": "R3",
-    "planned": 0,
-    "actual": 0
-  },
-  {
-    "name": "R1",
-    "planned": 0,
-    "actual": 0
-  },
   {
     "name": "Tik R1",
     "planned": 15,
@@ -278,31 +238,6 @@ export const combinedFdtData = [
     "name": "Sht R5",
     "planned": 5,
     "actual": 0
-  },
-  {
-    "name": "GZL R2",
-    "planned": 12,
-    "actual": 3
-  },
-  {
-    "name": "Dora R2",
-    "planned": 4,
-    "actual": 4
-  },
-  {
-    "name": "ENT R2",
-    "planned": 2,
-    "actual": 2
-  },
-  {
-    "name": "Feedr",
-    "planned": 0,
-    "actual": 7
-  },
-  {
-    "name": "CC",
-    "planned": 0,
-    "actual": 1
   }
 ];
 
@@ -332,12 +267,6 @@ export const fdtPendingProgressData = [
     "total": 8
   },
   {
-    "name": "R2",
-    "in_progress": 0,
-    "pending": 7,
-    "total": 7
-  },
-  {
     "name": "SMR R3",
     "in_progress": 2,
     "pending": 5,
@@ -348,18 +277,6 @@ export const fdtPendingProgressData = [
     "in_progress": 0,
     "pending": 5,
     "total": 5
-  },
-  {
-    "name": "R1",
-    "in_progress": 0,
-    "pending": 4,
-    "total": 4
-  },
-  {
-    "name": "R3",
-    "in_progress": 0,
-    "pending": 3,
-    "total": 3
   },
   {
     "name": "Tik R2",
@@ -384,18 +301,6 @@ export const fdtPendingProgressData = [
     "in_progress": 2,
     "pending": 0,
     "total": 2
-  },
-  {
-    "name": "R5",
-    "in_progress": 0,
-    "pending": 1,
-    "total": 1
-  },
-  {
-    "name": "R4",
-    "in_progress": 0,
-    "pending": 1,
-    "total": 1
   }
 ];
 
@@ -577,13 +482,6 @@ export const cwFeederDetailedData = [
     "done": 0,
     "pending": 1,
     "in_progress": 0
-  },
-  {
-    "name": "Feedr",
-    "status": "Done",
-    "done": 1,
-    "pending": 0,
-    "in_progress": 0
   }
 ];
 
@@ -641,36 +539,6 @@ export const fiberVsDrillingData = [
 ];
 
 export const grStatusData = [
-  {
-    "name": "NO RING",
-    "done": 1,
-    "pending": 0
-  },
-  {
-    "name": "R2",
-    "done": 5,
-    "pending": 2
-  },
-  {
-    "name": "R5",
-    "done": 1,
-    "pending": 0
-  },
-  {
-    "name": "R4",
-    "done": 1,
-    "pending": 0
-  },
-  {
-    "name": "R3",
-    "done": 2,
-    "pending": 1
-  },
-  {
-    "name": "R1",
-    "done": 4,
-    "pending": 0
-  },
   {
     "name": "Tik R1",
     "done": 15,
@@ -749,16 +617,6 @@ export const grStatusData = [
   {
     "name": "ENT R2",
     "done": 2,
-    "pending": 0
-  },
-  {
-    "name": "Feedr",
-    "done": 7,
-    "pending": 0
-  },
-  {
-    "name": "CC",
-    "done": 1,
     "pending": 0
   }
 ];
@@ -916,36 +774,6 @@ export const durationData = [
     "color": "#f59e0b"
   },
   {
-    "name": "NO RING ",
-    "days": 10,
-    "color": "#10b981"
-  },
-  {
-    "name": "R2",
-    "days": 10,
-    "color": "#10b981"
-  },
-  {
-    "name": "R5",
-    "days": 10,
-    "color": "#10b981"
-  },
-  {
-    "name": "R4",
-    "days": 10,
-    "color": "#10b981"
-  },
-  {
-    "name": "R3",
-    "days": 10,
-    "color": "#10b981"
-  },
-  {
-    "name": "R1",
-    "days": 10,
-    "color": "#10b981"
-  },
-  {
     "name": "Sht R3",
     "days": 10,
     "color": "#10b981"
@@ -957,16 +785,6 @@ export const durationData = [
   },
   {
     "name": "Sht R5",
-    "days": 10,
-    "color": "#10b981"
-  },
-  {
-    "name": "Feedr",
-    "days": 10,
-    "color": "#10b981"
-  },
-  {
-    "name": "CC",
     "days": 10,
     "color": "#10b981"
   },
@@ -1066,6 +884,132 @@ export const testVsSplicingData = [
   }
 ];
 
+export const testFdtPerRingData = [
+  {
+    "name": "Tik R1",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 0,
+    "total": 15,
+    "completion_rate": 100.0
+  },
+  {
+    "name": "Biji R1",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 0,
+    "total": 15,
+    "completion_rate": 100.0
+  },
+  {
+    "name": "SMR R1",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 0,
+    "total": 15,
+    "completion_rate": 100.0
+  },
+  {
+    "name": "Sht R1",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 0,
+    "total": 15,
+    "completion_rate": 100.0
+  },
+  {
+    "name": "Tik R2",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 3,
+    "total": 18,
+    "completion_rate": 83.3
+  },
+  {
+    "name": "Biji R2",
+    "completed": 6,
+    "pending": 0,
+    "not_started": 12,
+    "total": 18,
+    "completion_rate": 33.3
+  },
+  {
+    "name": "SMR R2",
+    "completed": 3,
+    "pending": 0,
+    "not_started": 13,
+    "total": 16,
+    "completion_rate": 18.8
+  }
+];
+
+export const splicingPerRingData = [
+  {
+    "name": "Tik R1",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 0,
+    "total": 15,
+    "completion_rate": 100.0
+  },
+  {
+    "name": "Biji R1",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 0,
+    "total": 15,
+    "completion_rate": 100.0
+  },
+  {
+    "name": "SMR R1",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 0,
+    "total": 15,
+    "completion_rate": 100.0
+  },
+  {
+    "name": "SMR R2",
+    "completed": 16,
+    "pending": 0,
+    "not_started": 0,
+    "total": 16,
+    "completion_rate": 100.0
+  },
+  {
+    "name": "Sht R1",
+    "completed": 13,
+    "pending": 0,
+    "not_started": 2,
+    "total": 15,
+    "completion_rate": 86.7
+  },
+  {
+    "name": "Tik R2",
+    "completed": 15,
+    "pending": 0,
+    "not_started": 3,
+    "total": 18,
+    "completion_rate": 83.3
+  },
+  {
+    "name": "Biji R2",
+    "completed": 9,
+    "pending": 0,
+    "not_started": 9,
+    "total": 18,
+    "completion_rate": 50.0
+  },
+  {
+    "name": "Tik R3",
+    "completed": 5,
+    "pending": 0,
+    "not_started": 6,
+    "total": 11,
+    "completion_rate": 45.5
+  }
+];
+
 export interface HeatmapRow {
     ring: string;
     gr: 'done' | 'pending' | 'inprogress' | 'mixed' | 'nodata';
@@ -1077,51 +1021,6 @@ export interface HeatmapRow {
 }
 
 export const heatmapData: HeatmapRow[] = [
-  {
-    "ring": "R2",
-    "gr": "mixed",
-    "cw": "nodata",
-    "splicing": "nodata",
-    "distribution": "nodata",
-    "fdtDone": 0,
-    "fdtPending": 7
-  },
-  {
-    "ring": "R5",
-    "gr": "done",
-    "cw": "nodata",
-    "splicing": "nodata",
-    "distribution": "nodata",
-    "fdtDone": 0,
-    "fdtPending": 1
-  },
-  {
-    "ring": "R4",
-    "gr": "done",
-    "cw": "nodata",
-    "splicing": "nodata",
-    "distribution": "nodata",
-    "fdtDone": 0,
-    "fdtPending": 1
-  },
-  {
-    "ring": "R3",
-    "gr": "mixed",
-    "cw": "nodata",
-    "splicing": "nodata",
-    "distribution": "nodata",
-    "fdtDone": 0,
-    "fdtPending": 3
-  },
-  {
-    "ring": "R1",
-    "gr": "done",
-    "cw": "nodata",
-    "splicing": "nodata",
-    "distribution": "nodata",
-    "fdtDone": 0,
-    "fdtPending": 4
-  },
   {
     "ring": "Tik R1",
     "gr": "done",

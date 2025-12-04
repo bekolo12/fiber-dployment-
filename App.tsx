@@ -4,6 +4,7 @@ import HeatmapTable from './components/HeatmapTable';
 import InfoSections from './components/InfoSections';
 import KPIAnalysis from './components/KPIAnalysis';
 import StrategicRecommendations from './components/StrategicRecommendations';
+import { qcStatusData } from './constants';
 
 const App: React.FC = () => {
   const currentDate = new Date().toLocaleDateString('en-US', {
@@ -11,6 +12,11 @@ const App: React.FC = () => {
     month: 'long',
     day: 'numeric',
   });
+
+  // Calculate QC Stats dynamically
+  const qcDoneCount = qcStatusData.find(d => d.name === 'Done')?.value || 0;
+  const qcTotalCount = qcStatusData.reduce((acc, curr) => acc + curr.value, 0);
+  const qcPercentage = qcTotalCount > 0 ? ((qcDoneCount / qcTotalCount) * 100).toFixed(1) : '0.0';
 
   return (
     <div className="bg-gray-100 min-h-screen font-sans text-gray-900">
@@ -83,8 +89,8 @@ const App: React.FC = () => {
             />
             <KPICard 
               label="QC Done Rate" 
-              value="56.1%" 
-              subtext="115 of 205 complete" 
+              value={`${qcPercentage}%`}
+              subtext={`${qcDoneCount} of ${qcTotalCount} complete`} 
               borderColor="border-emerald-500" 
               subtextClass="text-green-500"
             />
