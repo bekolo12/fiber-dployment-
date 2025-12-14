@@ -45,7 +45,7 @@ const App: React.FC = () => {
             <h2 className="text-xl font-semibold text-gray-800">Executive Summary</h2>
             <div className="flex flex-col items-end gap-2">
                 <a 
-                  href="https://019ae3e5-849c-7dd5-98ea-8876e2a858b2.arena.site" 
+                  href="https://project-status-dashboard-sand.vercel.app/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors shadow-sm w-full sm:w-auto justify-center"
@@ -56,7 +56,7 @@ const App: React.FC = () => {
                   </svg>
                 </a>
                 <a 
-                  href="https://lmarena.ai/c/019ae3e5-7e55-7506-bc22-97975fef3f3b" 
+                  href="https://aistudio.google.com/apps/drive/121czq0nd1hn60O4uGM-UMcoGZ5wwkaCB?showAssistant=true&showPreview=true&resourceKey=" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-white text-indigo-600 border border-indigo-200 text-sm font-medium rounded-lg hover:bg-indigo-50 transition-colors shadow-sm w-full sm:w-auto justify-center"
