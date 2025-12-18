@@ -8,7 +8,7 @@ import {
   COLORS, PALETTE, plannedFDTData, actualFdtData, combinedFdtData, fatSumData,
   qcStatusData, cwFeederDetailedData, fiberVsDrillingData, grStatusData, distributionLayingData,
   durationData, fdtPendingProgressData, finaleQcData, qcDetailedStatusData, 
-  testFdtPerRingData, splicingPerRingData
+  testFdtPerRingData, splicingPerRingData, qcPerRingData
 } from '../constants';
 
 const DashboardCharts: React.FC = () => {
@@ -123,23 +123,7 @@ const DashboardCharts: React.FC = () => {
          </div>
       </ChartCard>
 
-      {/* Row 4: FAT Sum */}
-      <ChartCard title="Actual FAT Sum per Ring">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={fatSumData}>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
-            <XAxis dataKey="name" angle={-45} textAnchor="end" height={60} tick={{fontSize: 10}} interval={0} />
-            <YAxis tick={{fontSize: 12}} />
-            <Tooltip 
-              cursor={{ fill: '#f9fafb' }}
-              contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-            />
-            <Bar dataKey="value" fill={COLORS.secondary} radius={[4, 4, 0, 0]} />
-          </BarChart>
-        </ResponsiveContainer>
-      </ChartCard>
-
-      {/* Row 5: QC Status Pie & Finale QC Analysis */}
+      {/* Row 4: QC Status Pie & Finale QC Analysis */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
          <ChartCard title="QC Status Distribution of civil work">
             <ResponsiveContainer width="100%" height="100%">
@@ -165,35 +149,26 @@ const DashboardCharts: React.FC = () => {
             </ResponsiveContainer>
          </ChartCard>
 
-         <ChartCard title="Finale QC Analysis">
-            <div className="h-full flex flex-col gap-4">
-                <div className="flex-grow relative min-h-[160px]">
-                    <ResponsiveContainer width="100%" height="100%">
-                        <BarChart data={qcDetailedStatusData} layout="vertical" margin={{ left: 10 }}>
-                            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#f3f4f6" />
-                            <XAxis type="number" hide />
-                            <YAxis dataKey="name" type="category" width={90} tick={{fontSize: 11}} />
-                            <Tooltip cursor={{ fill: '#f9fafb' }} />
-                            <Bar dataKey="value" radius={[0, 4, 4, 0]}>
-                                {qcDetailedStatusData.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={entry.color} />
-                                ))}
-                            </Bar>
-                        </BarChart>
-                    </ResponsiveContainer>
-                </div>
-                <div className="text-xs bg-gray-50 p-3 rounded-lg border border-gray-100">
-                    <h5 className="font-semibold text-gray-700 mb-2">Critical Findings & Recommendations:</h5>
-                    <ul className="list-disc pl-4 space-y-1 text-gray-600">
-                        {finaleQcData.critical_findings.slice(0, 2).map((f, i) => <li key={`crit-${i}`}>{f}</li>)}
-                        {finaleQcData.recommendations.slice(0, 2).map((r, i) => <li key={`rec-${i}`}>{r}</li>)}
-                    </ul>
-                </div>
-            </div>
+         <ChartCard title="QC Status Analysis per Ring">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={qcPerRingData} stackOffset="sign">
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={60} tick={{fontSize: 10}} interval={0} />
+                  <YAxis tick={{fontSize: 12}} />
+                  <Tooltip 
+                     cursor={{ fill: '#f9fafb' }}
+                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
+                  />
+                  <Legend verticalAlign="top" height={36}/>
+                  <Bar dataKey="pass" name="Pass" fill={COLORS.success} stackId="a" radius={[0, 0, 4, 4]} />
+                  <Bar dataKey="pass_notes" name="Pass with notes" fill={COLORS.primary} stackId="a" />
+                  <Bar dataKey="not_started" name="Not Started" fill={COLORS.gray} stackId="a" radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
          </ChartCard>
       </div>
 
-      {/* Row 6: CW Feeder */}
+      {/* Row 5: CW Feeder */}
       <ChartCard title="CW Feeder Status Overview per RING" height="h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
             <BarChart data={cwFeederDetailedData} stackOffset="sign">
@@ -217,7 +192,7 @@ const DashboardCharts: React.FC = () => {
         </ResponsiveContainer>
       </ChartCard>
 
-      {/* Row 7: Fiber vs Drilling */}
+      {/* Row 6: Fiber vs Drilling */}
       <ChartCard title="Fiber vs Drilling Length per Ring (meters)" height="h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={fiberVsDrillingData} barGap={0}>
@@ -235,7 +210,7 @@ const DashboardCharts: React.FC = () => {
         </ResponsiveContainer>
       </ChartCard>
 
-      {/* Row 8: Stacked Bars */}
+      {/* Row 7: Stacked Bars */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ChartCard title="GR Status per Ring (Done vs Pending)">
           <ResponsiveContainer width="100%" height="100%">
@@ -273,7 +248,7 @@ const DashboardCharts: React.FC = () => {
         </ChartCard>
       </div>
 
-       {/* Row 9: Duration */}
+       {/* Row 8: Duration */}
       <ChartCard title="Total Project Duration per Ring (Days) Estimated" height="h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={durationData} layout="vertical">
@@ -293,7 +268,7 @@ const DashboardCharts: React.FC = () => {
         </ResponsiveContainer>
       </ChartCard>
 
-      {/* Row 10: Test FDT & Splicing Separate Charts */}
+      {/* Row 9: Test FDT & Splicing Separate Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ChartCard title="Test FDT Completion Status per Ring" height="h-[400px]">
             <ResponsiveContainer width="100%" height="100%">

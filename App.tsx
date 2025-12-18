@@ -1,9 +1,6 @@
 import React from 'react';
 import DashboardCharts from './components/DashboardCharts';
 import HeatmapTable from './components/HeatmapTable';
-import InfoSections from './components/InfoSections';
-import KPIAnalysis from './components/KPIAnalysis';
-import StrategicRecommendations from './components/StrategicRecommendations';
 import { qcStatusData } from './constants';
 
 const App: React.FC = () => {
@@ -105,15 +102,6 @@ const App: React.FC = () => {
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Ring Status Overview Heatmap</h3>
             <HeatmapTable />
         </div>
-
-        {/* Info Sections: AI Analysis & Improvements */}
-        <InfoSections />
-
-        {/* New KPI Analysis Dashboard */}
-        <KPIAnalysis />
-
-        {/* New Strategic Recommendations */}
-        <StrategicRecommendations />
 
       </main>
 

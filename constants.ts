@@ -871,6 +871,25 @@ export const qcDetailedStatusData = [
   }
 ];
 
+export const qcPerRingData = [
+  { name: "Tik R1", pass: 10, pass_notes: 5, not_started: 0 },
+  { name: "Tik R2", pass: 8, pass_notes: 7, not_started: 3 },
+  { name: "Tik R3", pass: 5, pass_notes: 4, not_started: 2 },
+  { name: "Biji R1", pass: 12, pass_notes: 3, not_started: 0 },
+  { name: "Biji R2", pass: 5, pass_notes: 5, not_started: 8 },
+  { name: "SMR R1", pass: 15, pass_notes: 0, not_started: 0 },
+  { name: "SMR R2", pass: 10, pass_notes: 6, not_started: 0 },
+  { name: "SMR R3", pass: 2, pass_notes: 2, not_started: 7 },
+  { name: "Sht R1", pass: 10, pass_notes: 3, not_started: 2 },
+  { name: "Sht R2", pass: 10, pass_notes: 6, not_started: 2 },
+  { name: "Sht R3", pass: 0, pass_notes: 0, not_started: 13 },
+  { name: "Sht R4", pass: 0, pass_notes: 0, not_started: 8 },
+  { name: "Sht R5", pass: 0, pass_notes: 0, not_started: 5 },
+  { name: "GZL R2", pass: 0, pass_notes: 3, not_started: 9 },
+  { name: "Dora R2", pass: 0, pass_notes: 4, not_started: 0 },
+  { name: "ENT R2", pass: 0, pass_notes: 2, not_started: 0 },
+];
+
 export const testVsSplicingData = [
   {
     "name": "Test FDT",
